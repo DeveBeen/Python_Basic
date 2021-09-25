@@ -88,3 +88,27 @@ for v in lt:
         continue
     print('current type : ', v, type(v)) # continue문으로 만약 bool형을 만날 시 다시 조건으로 올라가므로, 'True'값이 스킵된다.
     print('multiply by 2', v * 3)
+
+# for - else 구문
+numbers = [14, 3, 4, 7, 10, 24, 17, 2, 33, 15, 34, 36, 38]
+
+for num in numbers: # for문이 마지막까지 모두 진행되었을 때, 마지막으로 else 구문이 실행된다.
+    if num == 49:
+        print('Found : 49')
+        break # 만약 49라는 원소가 있었으면, break가 작동되어 for - else문 자체에서 빠져나가므로, else문은 실행되지 않는다.
+else:
+    print('Not Found : 49') # 49 원소는 존재하지 않으므로, for문이 전부 작동했고, 따라서 else문이 실행되었다.
+
+# 구구단 출력
+for i in range(2,10):
+    for j in range(1,10):
+        print('{:4d}'.format(i*j), end=' ') # 최대 4자리 정수로, i * j 값을 압력 후 마지막 기호는 ' '(공백)으로 출력
+    print() # 줄바꿈용
+
+# 변환 예제
+name2 = 'Aceman'
+
+print('Reversed', reversed(name2)) # reversed함수 : 뜻 그대로 뒤집어주는 함수이나, 값을 주소값에 저장을 하기 때문에 reversed 된 값을 가져오고 싶으면 형변환을 거쳐야 한다.(id값으로 저장된다.)
+print('List', list(reversed(name2)))
+print('Tuple', tuple(reversed(name2)))
+print('Set', set(reversed(name2))) # set은 순서가 없다.
