@@ -105,3 +105,29 @@ def nested_func(num):
 
 nested_func(100) # 위 함수 시스템에 따라 최종적으로 num + 100이 출력되므로 200이 출력된다.
 #func_in_func(100) -> 이처럼 만약 밖에서 호출 한다고 한다면, 함수 선언이 안된 상태이기 때문에 호출이 되지 않는다.
+
+# 람다식 예제
+# 메모리 절약, 가독성 향상, 코드 간결
+# 함수는 객체 생성 -> 리소스(메모리) 할당
+# 람다는 즉시 실행 함수(Heap 초기화) -> 메모리 초기화
+# 남발 시 가독성 오히려 감소
+#def mul_func(x, y):
+#    return x * y
+#lambda x, y: x * y  이것이 lambda함수이다. 위에 mul_func와 같은 함수이나, 이 함수는 함수의 이름이 없다. 이는 변수의 담아서 사용하거나 함수의 인자로 사용하기도 한다.
+def mul_func(x, y):
+    return x * y
+
+# 일반적 함수 -> 변수의 할당
+print(mul_func(10, 50)) # 위 함수의 호출 방식은 이러하다.
+mul_func_var = mul_func # 이는 변수의 함수를 할당하는 방식으로
+print(mul_func_var(20, 50)) # 할당 후에 이와같이 사용할 수 있다.
+
+# 람다 함수 -> 변수에 할당
+lambda_mul_func = lambda x,y : x*y # lambda함수는 즉시 실행 함수이므로 이처럼 선언과 호출이 동시에 가능하다.
+print(lambda_mul_func(50, 50)) # 이처럼 출력한다. 단순한 코드의 유리하다.
+
+def func_final(x, y, func):
+    print(x * y * func(100, 100))
+
+func_final(10, 20, lambda x,y:x*y) # 함수를 인자로 받는 함수에 lambda함수를 할당하여 즉시 실행이 가능하다. 보통 람다는 이럴 때, 많이 사용한다.
+func_final(10, 20, mul_func_var) # 물론 이처럼 일반 함수를 할당한 변수를 할당해도 함수가 정상적으로 실행된다.
