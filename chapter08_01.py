@@ -46,3 +46,33 @@ def conv_abs(x):
 
 print(list(map(conv_abs, [1,-3,2,0,-5,6]))) # filter는 조건에 맞게 걸러주는 역이라면 map은 조건에 맞는 모든 요소를 추출해준다.
 print(list(map(lambda x:abs(x), [1,-3,2,0,-5,6])))
+
+# 제곱값을 반환해주는 함수 : pow()
+print(pow(2,10))
+
+# 반복가능한 객체(Iterable)를 반환해주는 함수 : range()
+print(range(1,10,2))
+print(list(range(1,10,2)))
+print(list(range(0,-15,-1)))
+
+# 반올림 해주는 함수 : round()
+print(round(6.5781, 2)) # round(숫자, 소수점 아래 몇번쟤) -> 6.5781을 소수점 아래 2번째에서 반올림을 받았음으로 6.58이 출력된다.
+print(round(5.6)) # 뒷 인자가 없으므로 그냥 첫번째자리에서 반올림한다.
+
+# 반복 가능한 객체(Iterable)를 정렬해주는 함수 : sorted()
+print(sorted([6,7,4,3,1,2]))
+print(sorted(['p','y','t','h','o','n'])) # 알파벳 순서로 정렬해준다.
+
+# 반복 가능한 객체(Iterable)를 더해서 반환해주는 함수 : sum()
+print(sum([6,7,8,9,10]))
+print(sum(range(1,101)))
+
+# 자료형을 확인해주는 함수 : type()
+print(type(3))
+print(type({}))
+print(type(()))
+print(type([]))
+
+# 반복 가능한 객체(Iterable)의 요소를 묶어서 반환해주는 함수 : zip()
+print(list(zip([10,20,30], [40,50,60]))) # 원소의 인덱스 번호끼리 튜플형으로 묶어준다.
+print(list(zip([10,20,30], [40,50]))) # 만약, 이처럼 len이 다를 경우엔 인덱스 번호가 일치하는 것만 출력한다.
