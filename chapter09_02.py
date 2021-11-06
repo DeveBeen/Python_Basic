@@ -42,3 +42,26 @@ with open('./resource/test1.csv', 'r') as f:
         print('-'*10)
 
 # 예제 4
+w = [[1,2,3], [4,5,6], [7,8,9], [10,11,12], [13,14,15], [16,17,18], [19,20,21]]
+
+with open('./resource/write1.csv', 'w', encoding='utf-8') as f:
+    print(dir(csv))
+    wt = csv.writer(f) # writer() : csv 파일 쓰기 메소드이다.
+
+    # dir과 type 확인 - 습관을 들이는게 중요하다.
+
+    for v in w: # 리스트 내에 있는 리스트를 반복 하므로 리스트 당 한줄 씩 작성된다.
+        wt.writerow(v) # writerow() : 한 줄씩 작성
+
+# 예제 5
+with open('./resource/write2.csv', 'w', encoding='utf-8') as f:
+    # 필드명
+    fields = ['One', 'Two', 'Three']
+
+    # Dict Writter
+    wt = csv.DictWriter(f, fieldnames=fields)
+    # Header Writer
+    wt.writeheader() # header 설정
+
+    for v in w:
+        wt.writerow({'One':v[0], 'Two':v[1], 'Three':v[2]}) # 위에 작성한 필드 네임이 정확이 맵핑이 되어야 한다.
